@@ -4,5 +4,7 @@
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../basic-android-kotlin-compose-training-affirmations" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/../basic-android-kotlin-compose-training-tip-calculator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../basic-android-kotlin-compose-training-tip-calculator/basic-android-kotlin-compose-training-tip-calculator" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/../basic-android-kotlin-compose-training-woof" vcs="Git" />
   </component>
 </project>

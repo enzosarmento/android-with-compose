@@ -1,54 +1,49 @@
-package com.example.superheroes
+package com.example.thirtydays
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.superheroes.model.HeroesRepository
-import com.example.superheroes.ui.theme.SuperheroesTheme
+import com.example.thirtydays.model.DayTaskRepository
+import com.example.thirtydays.ui.theme.ThirtyDaysTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            SuperheroesTheme {
-                SuperheroesApp()
+            ThirtyDaysTheme {
+                ThirtyDaysApp()
             }
         }
     }
 }
 
 @Composable
-fun SuperheroesApp() {
-    val heroes = HeroesRepository.heroes
+fun ThirtyDaysApp() {
     Scaffold(
         topBar = {
-            SuperheroesTopAppBar()
+            ThirtyDaysTopAppBar()
         }
     ) { innerPadding ->
-        HeroList(
-            heroes,
-            modifier = Modifier.padding(innerPadding)
-        )
+        DayTaskList(DayTaskRepository.tasks, Modifier.padding(innerPadding))
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SuperheroesTopAppBar(modifier: Modifier = Modifier) {
-    CenterAlignedTopAppBar(
+fun ThirtyDaysTopAppBar(modifier: Modifier = Modifier) {
+    TopAppBar(
         title = {
             Text(
                 text = stringResource(R.string.app_name),
@@ -61,8 +56,8 @@ fun SuperheroesTopAppBar(modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun SuperheroesAppPreview() {
-    SuperheroesTheme(darkTheme = false) {
-        SuperheroesApp()
+fun ThirtyDaysAppPreview() {
+    ThirtyDaysTheme {
+        ThirtyDaysApp()
     }
 }
